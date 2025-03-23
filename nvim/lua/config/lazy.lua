@@ -20,12 +20,15 @@ require("lazy").setup({
   spec = {
     { import = "plugins" },
   },
-  install = { colorscheme = { "habamax" } },
   checker = { enabled = true },
   {    "ThePrimeagen/vim-be-good",
   	cmd = "VimBeGood", 
 	config = function()
-      		require("VimBeGood").menu {}
+      		require("VimBeGood").setup {}
     	end,
   },
+  
+
+
+
 })
