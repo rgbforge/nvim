@@ -25,7 +25,7 @@ require("lazy").setup({
   {    "ThePrimeagen/vim-be-good",
   	cmd = "VimBeGood", 
 	config = function()
-      		require("VimBeGood").setup {}
+      		require("VimBeGood").menu {}
     	end,
   },
 })
