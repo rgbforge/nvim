@@ -28,7 +28,7 @@ return {
   {  "ThePrimeagen/vim-be-good",
   cmd = "VimBeGood",  
   config = function()
-    require("VimBeGood").setup {} 
+    require("vim-be-good").menu{} 
   end,
   },
 
