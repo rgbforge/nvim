@@ -15,6 +15,11 @@ return {
       vim.g.startuptime_tries = 10
     end,
   },
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000
+  },
   { "nvim-tree/nvim-web-devicons", lazy = true },
   {  "ThePrimeagen/vim-be-good",
   cmd = "VimBeGood",  
