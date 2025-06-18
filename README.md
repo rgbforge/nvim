@@ -1,36 +1,40 @@
 # envport
 
+Required packages on most systems: make, cmake, git
+
+bash scripts/install.sh
+
+
+
+
+install.sh
+
+---------------------------------------
+
 git clone https://github.com/neovim/neovim
 
 cd neovim
 
 make CMAKE_BUILD_TYPE=RelWithDebInfo
 
-cd build/
+cd build
 
 mkdir ../INSTALL
 
-pwd
-
-ccmake ..
-
-use pwd for /path/to/neovim/INSTALL
+cmake -DCMAKE_INSTALL_PREFIX=$(pwd)/../INSTALL ..
 
 make install
 
 
 
 
-Edit ~/.bashrc 
+echo 'export PATH="$PATH:$HOME/gdir/neovim/INSTALL/bin"' >> ~/.bashrc
 
+echo 'export XDG_DATA_DIRS="$XDG_DATA_DIRS:$HOME/gdir/neovim/INSTALL/share"' >> ~/.bashrc
 
-export PATH="$PATH:/home/rgbforge/gdir/neovim/INSTALL/bin"
+echo 'export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$HOME/gdir/neovim/INSTALL/lib64"' >> ~/.bashrc
 
-export XDG_DATA_DIRS="$XDG_DATA_DIRS:/home/rgbforge/gdir/neovim/INSTALL/share"
-
-export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/home/rgbforge/gdir/neovim/INSTALL/lib64"
-
-alias n='nvim'
+echo "alias n='nvim'" >> ~/.bashrc
 
 
 source ~/.bashrc 
