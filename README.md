@@ -1,6 +1,6 @@
 # envport
 
-Required packages on most systems: make, cmake, git
+Required packages on most systems: gcc, make, cmake, git
 
 bash scripts/install.sh
 
