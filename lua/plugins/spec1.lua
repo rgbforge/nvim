@@ -36,5 +36,11 @@ return {
     lazy = false,
     priority = 1000,
     opts = {},
+  },
+  {
+  'nvim-treesitter/nvim-treesitter',
+  lazy = false,
+  branch = 'main',
+  build = ':TSUpdate'
   }
 }
