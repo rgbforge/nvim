@@ -13,22 +13,10 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   end
 end
 vim.opt.rtp:prepend(lazypath)
-vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
 
 require("lazy").setup({
   spec = {
     { import = "plugins" },
   },
   checker = { enabled = true },
-  {    "ThePrimeagen/vim-be-good",
-  	cmd = "VimBeGood", 
-	config = function()
-      		require("VimBeGood").setup {}
-    	end,
-  },
-  
-
-
-
 })
