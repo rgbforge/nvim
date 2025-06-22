@@ -102,7 +102,6 @@ return {
       end
 
       local on_attach_ruff = function(client, bufnr)
-        client.server_capabilities.hoverProvider = false
         on_attach(client, bufnr)
         local bufopts = { noremap = true, silent = true, buffer = bufnr }
         vim.keymap.set("n", "<leader>co", function()
@@ -115,35 +114,50 @@ return {
         keys = { { "<leader>ch", "<cmd>ClangdSwitchSourceHeader<cr>", desc = "Switch Source/Header (C/C++)" } },
         root_dir = function(fname)
           return require("lspconfig.util").root_pattern(
-            "Makefile",
-            "configure.ac",
-            "configure.in",
-            "config.h.in",
-            "meson.build",
-            "meson_options.txt",
-            "build.ninja"
+            "Makefile", "configure.ac", "configure.in", "config.h.in",
+            "meson.build", "meson_options.txt", "build.ninja"
           )(fname)
             or require("lspconfig.util").root_pattern(
-              "compile_commands.json",
-              "compile_flags.txt"
+              "compile_commands.json", "compile_flags.txt"
             )(fname)
             or require("lspconfig.util").find_git_ancestor(fname)
         end,
         capabilities = { offsetEncoding = { "utf-16" } },
         cmd = {
-          "clangd",
-          "--background-index",
-          "--clang-tidy",
-          "--header-insertion=iwyu",
-          "--completion-style=detailed",
-          "--function-arg-placeholders",
-          "--fallback-style=llvm",
+          "clangd", "--background-index", "--clang-tidy",
+          "--header-insertion=iwyu", "--completion-style=detailed",
+          "--function-arg-placeholders", "--fallback-style=llvm",
         },
         init_options = { usePlaceholders = true, completeUnimported = true, clangdFileStatus = true },
       })
 
-      lspconfig.pyright.setup({ on_attach = on_attach })
-      lspconfig.ruff.setup({ on_attach = on_attach_ruff })
+      lspconfig.pyright.setup({
+        on_attach = on_attach,
+        settings = {
+          pyright = {
+            disableOrganizeImports = true,
+          },
+          python = {
+            analysis = {
+              ignore = { "*" },
+            },
+          },
+        },
+      })
+
+      lspconfig.ruff.setup({
+        on_attach = on_attach_ruff,
+      })
+
+      vim.api.nvim_create_autocmd("LspAttach", {
+        group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
+        callback = function(args)
+          local client = vim.lsp.get_client_by_id(args.data.client_id)
+          if client and client.name == "ruff" then
+            client.server_capabilities.hoverProvider = false
+          end
+        end,
+      })
     end,
   },
 }
