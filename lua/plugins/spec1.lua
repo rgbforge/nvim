@@ -79,7 +79,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "clangd", "pyright", "ruff_lsp" },
+        ensure_installed = { "clangd", "pyright", "ruff" },
       })
     end,
   },
@@ -143,7 +143,7 @@ return {
       })
 
       lspconfig.pyright.setup({ on_attach = on_attach })
-      lspconfig.ruff_lsp.setup({ on_attach = on_attach_ruff })
+      lspconfig.ruff.setup({ on_attach = on_attach_ruff })
     end,
   },
 }
