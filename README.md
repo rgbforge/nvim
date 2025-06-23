@@ -1,5 +1,7 @@
 # rgbforge's neovim setup
 
+If you are new to neovim, the [basic branch](https://github.com/rgbforge/nvim/tree/basic) would be worth considering, as the main branch is a "fully-featured" setup for neovim including language servers and advanced configurations.
+
 
 ## Core Plugins
 
