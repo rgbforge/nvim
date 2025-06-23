@@ -7,6 +7,7 @@ A neovim setup focused on only the basics, doesn't include language server suppo
 
 * `nvim-treesitter`
 
+For basic syntax highlights
 
 ## Prerequisites
 
