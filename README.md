@@ -1,4 +1,10 @@
-# envport
+# rgbforge's nvim setup
+
+main plugins are lspconfig, treesitter, neogit, mason, telescope,
+configured languages are c++, python, and lua
+
+
+
 
 Required packages on most systems for normal nvim: gcc, make, cmake, git
 
