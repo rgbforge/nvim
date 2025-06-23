@@ -33,7 +33,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 vim.lsp.config("clangd", {
   keys = { { "<leader>ch", "<cmd>ClangdSwitchSourceHeader<cr>", desc = "Switch Source/Header (C/C++)" } },
   root_dir = function(fname)
-    -- ADD THIS GUARD CLAUSE
+    -- "guard clause", unsure if necessary
     if type(fname) ~= "string" then
       return nil
     end
