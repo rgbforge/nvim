@@ -1,5 +1,8 @@
 # rgbforge's basic neovim setup
 
+A neovim setup focused on only the basics, doesn't include language server support or other advanced features. If you want a more fully-featured setup, checkout the [main branch](https://github.com/rgbforge/nvim/main).
+
+
 ## Core Plugin
 
 * `nvim-treesitter`
