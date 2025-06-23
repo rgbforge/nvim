@@ -4,9 +4,15 @@ Required packages on most systems for normal nvim: gcc, make, cmake, git
 
 bash scripts/install.sh
 
-required packages for this nvim's lsp config: unzip, g++ (for clangd), npm (for pyright)
+#required packages for this nvim's lsp config: unzip, g++ (for clangd), npm (for pyright)
 
 !! ruff on debian needs build essentials/cargo/pkg-config probably due to some glibc shenanigans, ubuntu seems fine without it
+
+
+expects xclip or wayclip for clipboard
+
+
+
 
 ---------------------------------------
 
