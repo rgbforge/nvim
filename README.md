@@ -10,6 +10,7 @@ If you are new to neovim, the [basic branch](https://github.com/rgbforge/nvim/tr
 * `neogit`
 * `mason.nvim`
 * `telescope.nvim`
+* `nvim-cmp`
 
 ## Configured Languages
 
