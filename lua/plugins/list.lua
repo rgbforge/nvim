@@ -1,5 +1,3 @@
--- File: lua/plugins/spec1.lua
-
 return {
   {
     "nvim-tree/nvim-web-devicons",
