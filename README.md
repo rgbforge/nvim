@@ -4,7 +4,6 @@
 
 * `nvim-treesitter`
 
----
 
 ## Prerequisites
 
