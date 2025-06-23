@@ -26,6 +26,16 @@ return {
     lazy = false,
     branch = "main",
     build = ":TSUpdate",
+    opts = {
+    ensure_installed = {
+      "c",
+      "cpp",
+      "lua",
+      "python",
+    },
+    highlight = {
+      enable = true,
+    },
   },
   {
     "nvim-lua/plenary.nvim",
