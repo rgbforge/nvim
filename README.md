@@ -1,19 +1,8 @@
-# rgbforge's neovim setup
+# rgbforge's basic neovim setup
 
+## Core Plugin
 
-## Core Plugins
-
-* `nvim-lspconfig`
 * `nvim-treesitter`
-* `neogit`
-* `mason.nvim`
-* `telescope.nvim`
-
-## Configured Languages
-
-* C++
-* Python
-* Lua
 
 ---
 
@@ -26,32 +15,16 @@
 * `cmake`
 * `git`
 
-#### Necessary System Packages for LSP
-The following packages are required by the specific LSP servers managed by this configuration.
-
-* `unzip`
-* `c++` (for `clangd`)
-* `npm` (for `pyright`)
-
 #### Clipboard for WSL
 One of the following clipboard tools must be installed for system clipboard integration.
 
 * `xclip` or `wayclip` 
 
-
-#### Notes on Distro-Specific Package Requirements
-
-**Debian 12:** `ruff` requires rebuild from source due to glibc versioning. The following packages are required:
-
-```
-sudo apt install build-essential cargo pkg-config libssl-dev
-```
-
 ---
 
 ## Installation
 
-### Note: This script modifies .bashrc. If you use another shell (e.g., zsh), you must manually add these lines to your ~/.zshrc file.
+### Note: This script modifies .bashrc. If you use another shell (e.g., zsh), you must manually add these lines to your ~/.zshrc or fish file.
 
 ```
 cd ~/.config
