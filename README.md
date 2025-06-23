@@ -1,61 +1,85 @@
-# rgbforge's nvim setup
-
-main plugins are lspconfig, treesitter, neogit, mason, telescope,
-configured languages are c++, python, and lua
+# rgbforge's neovim setup
 
 
+## Core Plugins
+
+* `nvim-lspconfig`
+* `nvim-treesitter`
+* `neogit`
+* `mason.nvim`
+* `telescope.nvim`
+
+## Configured Languages
+
+* C++
+* Python
+* Lua
+
+---
+
+## Prerequisites
+
+#### Necessary General System Packages
+
+* `gcc`
+* `make`
+* `cmake`
+* `git`
+
+#### Necessary System Packages for LSP
+The following packages are required by the specific LSP servers managed by this configuration.
+
+* `unzip`
+* `c++` (for `clangd`)
+* `npm` (for `pyright`)
+
+#### Clipboard for WSL
+One of the following clipboard tools must be installed for system clipboard integration.
+
+* `xclip` or `wayclip` 
 
 
-Required packages on most systems for normal nvim: gcc, make, cmake, git
+#### Notes on Distro-Specific Package Requirements
 
-bash scripts/install.sh
+**Debian 12:** `ruff` requires rebuild from source due to glibc versioning. The following packages are required:
 
-#required packages for this nvim's lsp config: unzip, g++ (for clangd), npm (for pyright)
+```
+sudo apt install build-essential cargo pkg-config libssl-dev
+```
 
-!! ruff on debian needs build essentials/cargo/pkg-config probably due to some glibc shenanigans, ubuntu seems fine without it
+---
 
+## Installation
 
-expects xclip or wayclip for clipboard
+### Note: This script modifies .bashrc. If you use another shell (e.g., zsh), you must manually add these lines to your ~/.zshrc file.
 
+```
+cd ~/.config
+git clone https://github.com/rgbforge/nvim
+cd ~/nvim
 
+EITHER
 
-
----------------------------------------
-
-install.sh:
-
----------------------------------------
-
-git clone https://github.com/neovim/neovim
-
-cd neovim
-
+mkdir INSTALL && cd INSTALL
 make CMAKE_BUILD_TYPE=RelWithDebInfo
+make CMAKE_INSTALL_PREFIX=$(pwd) install
 
-cd build
+OR
 
-mkdir ../INSTALL
-
-cmake -DCMAKE_INSTALL_PREFIX=$(pwd)/../INSTALL ..
-
-make install
+cd scripts
+bash install.sh
 
 
 
-
-echo 'export PATH="$PATH:$HOME/gdir/neovim/INSTALL/bin"' >> ~/.bashrc
-
-echo 'export XDG_DATA_DIRS="$XDG_DATA_DIRS:$HOME/gdir/neovim/INSTALL/share"' >> ~/.bashrc
-
-echo 'export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$HOME/gdir/neovim/INSTALL/lib64"' >> ~/.bashrc
-
-echo "alias n='nvim'" >> ~/.bashrc
-
-
-source ~/.bashrc 
+```
 
 
 
-cd ~/.config/
 
-git clone https://github.com/rgbforge/nvim.git
+
+install.sh in the scripts dir adds NVIM_INSTALL_PATH to PATH, XDG_DATA_DIRS, LD_LIBRARY_PATH
+and alias n='nvim'" to .bashrc
+
+source ~/.bashrc or open a new terminal
+
+
