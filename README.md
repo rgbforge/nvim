@@ -19,7 +19,6 @@ One of the following clipboard tools must be installed for system clipboard inte
 
 * `xclip` or `wayclip` 
 
----
 
 ## Installation
 
