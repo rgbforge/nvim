@@ -152,7 +152,6 @@ case $BUILD_TYPE in
   basic)
     echo "BASIC installation"
     install_neovim
-    install_xclip
     update_shell_config
     ;;
   full)
