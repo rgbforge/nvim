@@ -30,7 +30,7 @@ usage() {
 install_neovim() {
   if [ ! -d "$INSTALL_DIR/neovim" ]; then
     echo "cloning neovim repo..."
-    git clone https://github.com/neovim/neovim "$INSTALL_DIR/neovim"
+    git clone -b master https://github.com/neovim/neovim "$INSTALL_DIR/neovim"
   else
     echo "repo already exists, skipping"
   fi
