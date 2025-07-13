@@ -92,13 +92,16 @@ return {
     config = function()
       local cmp = require("cmp")
       cmp.setup({
+        completion = {
+          max_item_count = 2
+        },
         mapping = cmp.mapping.preset.insert({
           ["<CR>"] = cmp.mapping.confirm({ select = true }),
           ["<C-Space>"] = cmp.mapping.complete(),
         }),
         sources = cmp.config.sources({
           { name = "nvim_lsp" },
-          { name = "buffer", max_item_count = 2},
+          { name = "buffer" ,
           { name = "path" },
         }),
       })
