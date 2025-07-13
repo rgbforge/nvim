@@ -90,11 +90,9 @@ return {
     "hrsh7th/nvim-cmp",
     dependencies = { "hrsh7th/cmp-buffer", "hrsh7th/cmp-path" },
     config = function()
+      vim.o.pumheight = 2
       local cmp = require("cmp")
       cmp.setup({
-        completion = {
-          max_item_count = 2
-        },
         mapping = cmp.mapping.preset.insert({
           ["<CR>"] = cmp.mapping.confirm({ select = true }),
           ["<C-Space>"] = cmp.mapping.complete(),
