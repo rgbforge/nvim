@@ -1,7 +1,5 @@
 #!/bin/bash
-set -e
-set -u
-set -o pipefail
+set -euo pipefail
 
 INSTALL_DIR="$HOME/.config/nvim/INSTALL"
 SHELL_CONFIG_FILE="$HOME/.bashrc"
@@ -66,7 +64,7 @@ install_xclip() {
     echo "cloning xclip repo..."
     git clone https://github.com/astrand/xclip.git
   else
-    echo "xclip repo already exists, skipping clone"
+    echo "xclip already exists, skipping clone"
   fi
 
   cd "xclip/"
@@ -81,7 +79,7 @@ install_xclip() {
 }
 
 update_shell_config() {
-  echo "!!! MAKING CHANGES TO BASHRC - DOUBLE CHECK SHELL CONFIG !!!"
+  echo "!!! CHANGING BASHRC - DOUBLE CHECK !!!"
   touch "$SHELL_CONFIG_FILE"
   declare -A config_lines
   config_lines=(
