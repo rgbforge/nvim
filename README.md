@@ -18,10 +18,8 @@ For basic syntax highlights
 * `cmake`
 * `git`
 
-#### Clipboard for WSL
-One of the following clipboard tools must be installed for system clipboard integration.
-
-* `xclip` or `wayclip` 
+#### Clipboard (see full branch)
+* `xclip` or `wayclip` are necessary for clipboard integration and not supported in the basic branch
 
 
 ## Installation
