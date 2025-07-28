@@ -1,5 +1,4 @@
 #!/bin/bash
-
 set -e
 set -u
 set -o pipefail
@@ -15,14 +14,12 @@ NODE_EXTRACTED_DIR="node-v${NODE_VERSION}-linux-${NODE_ARCH}"
 
 usage() {
   echo "neovim installer from source into '$INSTALL_DIR'."
-  echo "this can include node.js for full python LSP support and xclip."
-  echo ""
-  echo "Usage: $0 -b [basic|full]"
+  echo "usage: $0 -b [basic|full]"
   echo ""
   echo "Options:"
   echo "  -b basic      neovim and xclip"
-  echo "  -b full       neovim, node.js (for python not js), and xclip"
-  echo "  -h            help message"
+  echo "  -b full       neovim, node.js (for python LSP not js), and xclip"
+  echo "  -h            help"
   echo ""
   echo "Example: $0 -b full"
 }
@@ -37,10 +34,8 @@ install_neovim() {
 
   cd "$INSTALL_DIR/neovim"
 
-  echo "building neovim of type: RelWithDebInfo"
+  echo "building/installing neovim"
   make CMAKE_BUILD_TYPE=RelWithDebInfo
-
-  echo "Installing Neovim to $INSTALL_DIR..."
   make CMAKE_INSTALL_PREFIX="$INSTALL_DIR" install
 
   echo "neovim install complete"
@@ -76,14 +71,10 @@ install_xclip() {
 
   cd "xclip/"
 
-  echo "configuring xclip..."
+  echo "building/installing xclip..."
   autoreconf -i
   ./configure --prefix="$INSTALL_DIR"
-
-  echo "building xclip..."
   make
-
-  echo "installing xclip..."
   make install
 
   echo "xclip install complete"
@@ -91,9 +82,7 @@ install_xclip() {
 
 update_shell_config() {
   echo "!!! MAKING CHANGES TO BASHRC - DOUBLE CHECK SHELL CONFIG !!!"
-
   touch "$SHELL_CONFIG_FILE"
-
   declare -A config_lines
   config_lines=(
     ["PATH"]='export PATH="'"$INSTALL_DIR/bin"':$PATH"'
@@ -106,15 +95,12 @@ update_shell_config() {
     line="${config_lines[$key]}"
     if ! grep -qF "$line" "$SHELL_CONFIG_FILE"; then
       echo "Adding $key to $SHELL_CONFIG_FILE"
-      echo -e "\n# Added by neovim installer\n$line" >> "$SHELL_CONFIG_FILE"
+      echo -e "\n# added by neovim installer\n$line" >> "$SHELL_CONFIG_FILE"
     else
       echo "$key config already exists in $SHELL_CONFIG_FILE, skipping"
     fi
   done
-
-  echo "shell config complete"
-  echo ""
-  echo "IMPORTANT: Run 'source $SHELL_CONFIG_FILE' or restart terminal"
+  echo "IMPORTANT: run 'source $SHELL_CONFIG_FILE' or restart terminal"
 }
 
 BUILD_TYPE=""
@@ -134,12 +120,12 @@ while getopts ":b:h" opt; do
       exit 0
       ;;
     \? )
-      echo "Invalid option: -$OPTARG" 1>&2
+      echo "invalid option: -$OPTARG" 1>&2
       usage
       exit 1
       ;;
     : )
-      echo "Invalid option: -$OPTARG requires an argument basic or full" 1>&2
+      echo "invalid option: -$OPTARG requires -b basic/full" 1>&2
       usage
       exit 1
       ;;
@@ -163,11 +149,10 @@ case $BUILD_TYPE in
     update_shell_config
     ;;
   *)
-    echo "Error: Invalid build option '$BUILD_TYPE', should be basic or full"
+    echo "error: invalid option '$BUILD_TYPE', should be basic or full"
     usage
     exit 1
     ;;
 esac
 
-echo ""
 echo "install finished"
