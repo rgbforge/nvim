@@ -1,5 +1,3 @@
-vim.opt.clipboard = "unnamedplus"
-
 require("config.lazy")
 
 --vim.cmd.colorscheme "catppuccin"
