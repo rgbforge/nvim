@@ -21,7 +21,7 @@ usage() {
   echo ""
   echo "Options:"
   echo "  -b basic      neovim and xclip"
-  echo "  -b full       neovim, node.js, and xclip"
+  echo "  -b full       neovim, node.js (for python not js), and xclip"
   echo "  -h            help message"
   echo ""
   echo "Example: $0 -b full"
