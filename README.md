@@ -2,6 +2,7 @@
 
 A neovim setup focused on only the basics, doesn't include language server support or other advanced features. If you want a more fully-featured setup, checkout the [main branch](https://github.com/rgbforge/nvim/).
 
+Clipboard not supported in the basic branch (see full branch)
 
 ## Core Plugin
 
@@ -17,8 +18,6 @@ For basic syntax highlights
 * `make`
 * `cmake`
 * `git`
-
-## Clipboard not supported in the basic branch (see full branch)
 
 ## Installation
 
