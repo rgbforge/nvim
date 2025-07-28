@@ -50,9 +50,9 @@ One of the following clipboard tools must be installed for system clipboard inte
 ```
 sudo apt install build-essential cargo pkg-config libssl-dev
 ```
-**Debian 12:** `xclip` requires autotools. The following packages are required:
+**Debian 12:** `xclip` requires autotools and libxmu-dev. The following packages are required:
 ```
-xclip requires sudo apt install autoconf automake libtool
+sudo apt install autoconf automake libtool libxmu-dev
 ```
 
 ---
