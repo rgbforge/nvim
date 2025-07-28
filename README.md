@@ -42,12 +42,17 @@ One of the following clipboard tools must be installed for system clipboard inte
 * `xclip` or `wayclip` 
 
 
+
 #### Notes on Distro-Specific Package Requirements
 
 **Debian 12:** `ruff` requires rebuild from source due to glibc versioning. The following packages are required:
 
 ```
 sudo apt install build-essential cargo pkg-config libssl-dev
+```
+**Debian 12:** `xclip` requires autotools. The following packages are required:
+```
+xclip requires sudo apt install autoconf automake libtool
 ```
 
 ---
