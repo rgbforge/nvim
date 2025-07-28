@@ -18,9 +18,7 @@ For basic syntax highlights
 * `cmake`
 * `git`
 
-#### Clipboard (see full branch)
-* `xclip` or `wayclip` are necessary for clipboard integration and not supported in the basic branch
-
+## Clipboard not supported in the basic branch (see full branch)
 
 ## Installation
 
@@ -32,22 +30,14 @@ git clone https://github.com/rgbforge/nvim
 cd ~/nvim
 
 EITHER
-
-mkdir INSTALL && cd INSTALL
-make CMAKE_BUILD_TYPE=RelWithDebInfo
-make CMAKE_INSTALL_PREFIX=$(pwd) install
-
-OR
-
 cd scripts
 bash install.sh
 
-
-
+OR
+mkdir INSTALL && cd INSTALL
+make CMAKE_BUILD_TYPE=RelWithDebInfo
+make CMAKE_INSTALL_PREFIX=$(pwd) install
 ```
-
-
-
 
 
 install.sh in the scripts dir adds NVIM_INSTALL_PATH to PATH, XDG_DATA_DIRS, LD_LIBRARY_PATH
