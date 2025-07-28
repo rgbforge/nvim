@@ -1,25 +1,10 @@
 return {
+  {"catppuccin/nvim", name = "catppuccin", priority = 1000 },
+  {"folke/tokyonight.nvim", lazy = false, priority = 1000, opts = {}},
   {
-    "nvim-tree/nvim-web-devicons",
-    lazy = true,
-  },
-  {
-    "ThePrimeagen/vim-be-good",
-    cmd = "VimBeGood",
-    config = function()
-      require("vim-be-good").setup({})
+    "ThePrimeagen/vim-be-good", cmd = "VimBeGood", config = function()
+    require("vim-be-good").setup({})
     end,
-  },
-  {
-    "catppuccin/nvim",
-    name = "catppuccin",
-    priority = 1000,
-  },
-  {
-    "folke/tokyonight.nvim",
-    lazy = false,
-    priority = 1000,
-    opts = {},
   },
   {
     "nvim-treesitter/nvim-treesitter",
@@ -29,13 +14,11 @@ return {
     opts = {
     	ensure_installed = {
      	  "c",
-          "cpp",
-          "lua",
-          "python",
+        "cpp",
+        "lua",
+        "python",
     	},
-    	highlight = {
-      	  enable = true,
-    	},
+    	highlight = {enable = true,},
      },
   },
 }
