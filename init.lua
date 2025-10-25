@@ -33,10 +33,14 @@ vim.pack.add({
   },
     --mason is broken
   {src = 'https://github.com/williamboman/mason.nvim',
-    require("mason").setup()
+    config = function()
+      require("mason").setup()
+    end,
   },
   {src = 'https://github.com/williamboman/mason-lspconfig.nvim',
-    require("mason-lspconfig").setup(),
+    config = function()
+      require("mason-lspconfig").setup(),
+    end,
     opts = {
       ensure_installed = { "clangd", "pyright", "ruff" },
     },
