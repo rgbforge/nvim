@@ -15,7 +15,8 @@ for type, icon in pairs(signs) do
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
-{src = 'https://github.com/nvim-tree/nvim-web-devicons', lazy = true },
+vim.pack.add({
+  {src = 'https://github.com/nvim-tree/nvim-web-devicons', lazy = true },
   {src = 'https://github.com/catppuccin/nvim', name = "catppuccin", priority = 1000 },
   {src = 'https://github.com/folke/tokyonight.nvim', lazy = false, priority = 1000, opts = {} },
   {src = 'https://github.com/Mofiqul/vscode.nvim' },
