@@ -15,7 +15,13 @@ for type, icon in pairs(signs) do
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
-require("config.lazy")
+vim.pack.add({
+  {src = 'nvim-tree/nvim-web-devicons', lazy = true },
+  {src = 'catppuccin/nvim', name = "catppuccin", priority = 1000 },
+  {src = 'folke/tokyonight.nvim', lazy = false, priority = 1000, opts = {} },
+  {src = 'Mofiqul/vscode.nvim' },
+  {src = 'ThePrimeagen/vim-be-good', cmd = "VimBeGood" },
+})
 
 vim.o.background = 'dark'
 
