@@ -47,8 +47,7 @@ return {
       local lspconfig = require("lspconfig")
 
       local on_attach = function(client, bufnr)
-        vim.api.nvim_buf_set_option(bufnr, "omnifunc",
-          "v:lua.vim.lsp.omnifunc")
+        vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
         local bufopts = { noremap = true, silent = true, buffer = bufnr }
         vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
         vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
@@ -68,69 +67,31 @@ return {
         end
       end
 
-      local lsp_augroup = vim.api.nvim_create_augroup("lsp-config-group",
-        { clear = true })
-      vim.api.nvim_create_autocmd("LspAttach", {
-        group = lsp_augroup,
-        callback = function(args)
-          local client = vim.lsp.get_client_by_id(args.data.client_id)
-          on_attach(client, args.buf)
-        end,
-      })
-
       lspconfig.clangd.setup({
-        capabilities = capabilities,
         on_attach = on_attach,
-        keys = {
-          { "<leader>ch", "<cmd>ClangdSwitchSourceHeader<cr>", desc = "Switch C/C++" }
-        },
-        root_dir = function(fname)
-          if type(fname) ~= "string" then return nil end
-          return require("lspconfig.util").root_pattern(
-            "Makefile", "configure.ac", "configure.in", "config.h.in",
-            "meson.build", "meson_options.txt", "build.ninja"
-          )(fname)
-            or require("lspconfig.util").root_pattern(
-              "compile_commands.json", "compile_flags.txt"
-            )(fname)
-            or require("lspconfig.util").find_git_ancestor(fname)
-        end,
-        cmd = {
-          "clangd", "--background-index", "--clang-tidy",
-          "--header-insertion=iwyu", "--completion-style=detailed",
-          "--function-arg-placeholders", "--fallback-style=llvm",
-        },
-        init_options = {
-          usePlaceholders = true,
-          completeUnimported = true,
-          clangdFileStatus = true
-        },
+        capabilities = capabilities,
       })
 
       lspconfig.pyright.setup({
-        capabilities = capabilities,
         on_attach = on_attach,
+        capabilities = capabilities,
         settings = {
           pyright = { disableOrganizeImports = true },
         },
       })
 
       lspconfig.ruff.setup({
-        capabilities = capabilities,
         on_attach = on_attach,
+        capabilities = capabilities,
       })
     end,
   },
   {
-    'hrsh7th/nvim-cmp',
-    dependencies = {
-      'hrsh7th/cmp-nvim-lsp',
-      'hrsh7th/cmp-buffer',
-      'hrsh7th/cmp-path',
-    },
+    "hrsh7th/nvim-cmp",
+    dependencies = { "hrsh7th/cmp-buffer", "hrsh7th/cmp-path" },
     config = function()
       vim.o.pumheight = 2
-      local cmp = require('cmp')
+      local cmp = require("cmp")
       cmp.setup({
         mapping = cmp.mapping.preset.insert({
           ["<CR>"] = cmp.mapping.confirm({ select = true }),
