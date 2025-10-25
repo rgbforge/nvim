@@ -15,12 +15,27 @@ for type, icon in pairs(signs) do
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
-vim.pack.add({
-  {src = 'nvim-tree/nvim-web-devicons', lazy = true },
-  {src = 'catppuccin/nvim', name = "catppuccin", priority = 1000 },
-  {src = 'folke/tokyonight.nvim', lazy = false, priority = 1000, opts = {} },
-  {src = 'Mofiqul/vscode.nvim' },
-  {src = 'ThePrimeagen/vim-be-good', cmd = "VimBeGood" },
+{src = 'https://github.com/nvim-tree/nvim-web-devicons', lazy = true },
+  {src = 'https://github.com/catppuccin/nvim', name = "catppuccin", priority = 1000 },
+  {src = 'https://github.com/folke/tokyonight.nvim', lazy = false, priority = 1000, opts = {} },
+  {src = 'https://github.com/Mofiqul/vscode.nvim' },
+  {src = 'https://github.com/ThePrimeagen/vim-be-good', cmd = "VimBeGood" },
+  {src = 'https://github.com/nvim-lua/plenary.nvim'},
+  {
+    src = 'https://github.com/nvim-telescope/telescope.nvim',
+    version = '0.1.8',
+  },
+  {
+   src = 'https://github.com/NeogitOrg/neogit',
+  },
+  {
+   src = 'https://github.com/nvim-treesitter/nvim-treesitter',
+    build = ":TSUpdate",
+    opts = {
+      ensure_installed = { "c", "cpp", "lua", "python" },
+      highlight = { enable = true },
+    },
+  },
 })
 
 vim.o.background = 'dark'
