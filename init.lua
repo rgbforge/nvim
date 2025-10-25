@@ -22,21 +22,29 @@ vim.pack.add({
   {src = 'https://github.com/Mofiqul/vscode.nvim' },
   {src = 'https://github.com/ThePrimeagen/vim-be-good', cmd = "VimBeGood" },
   {src = 'https://github.com/nvim-lua/plenary.nvim'},
-  {
-    src = 'https://github.com/nvim-telescope/telescope.nvim',
-    version = '0.1.8',
-  },
-  {
-   src = 'https://github.com/NeogitOrg/neogit',
-  },
-  {
-   src = 'https://github.com/nvim-treesitter/nvim-treesitter',
+  {src = 'https://github.com/nvim-telescope/telescope.nvim', version = '0.1.8',},
+  {src = 'https://github.com/NeogitOrg/neogit'},
+  {src = 'https://github.com/nvim-treesitter/nvim-treesitter',
     build = ":TSUpdate",
     opts = {
       ensure_installed = { "c", "cpp", "lua", "python" },
       highlight = { enable = true },
     },
   },
+    --mason is broken
+  {src = 'https://github.com/williamboman/mason.nvim',
+    config = function()
+      require("mason").setup()
+    end,
+  },
+  {src = 'https://github.com/williamboman/mason-lspconfig.nvim',
+    opts = {
+      ensure_installed = { "clangd", "pyright", "ruff" },
+    },
+  },
+  {src = 'https://github.com/neovim/nvim-lspconfig',  },
+  {src = 'https://github.com/hrsh7th/nvim-cmp'},
+  {src = 'https://github.com/p00f/clangd_extensions.nvim'},
 })
 
 vim.o.background = 'dark'
