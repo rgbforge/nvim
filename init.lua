@@ -37,7 +37,7 @@ vim.pack.add({
   },
   {src = 'https://github.com/williamboman/mason-lspconfig.nvim',
     config = function()
-      require("mason-lspconfig").setup(),
+      require("mason-lspconfig").setup()
     end,
     opts = { ensure_installed = { "clangd", "pyright", "ruff" },
     },
