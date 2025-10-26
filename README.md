@@ -1,6 +1,6 @@
-# rgbforge's neovim testing branch
+#testing branch
 
-## Plugins
+Plugins:
 
 * `nvim-lspconfig`
 * `nvim-treesitter`
