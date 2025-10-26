@@ -1,19 +1,14 @@
 return {
-  { "nvim-tree/nvim-web-devicons", lazy = true },
-  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-  { "folke/tokyonight.nvim", lazy = false, priority = 1000, opts = {} },
+  --{ "nvim-tree/nvim-web-devicons", lazy = true },
+  --{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+  --{ "folke/tokyonight.nvim", lazy = false, priority = 1000, opts = {} },
   { "Mofiqul/vscode.nvim" },
-  { "ThePrimeagen/vim-be-good", cmd = "VimBeGood" },
+  --{ "ThePrimeagen/vim-be-good", cmd = "VimBeGood" },
   { "nvim-lua/plenary.nvim" },
-  {
-    "nvim-telescope/telescope.nvim",
-    tag = "0.1.8",
-    dependencies = { "nvim-lua/plenary.nvim" },
-  },
-  {
-    "NeogitOrg/neogit",
-    dependencies = { "nvim-lua/plenary.nvim", "sindrets/diffview.nvim" },
-  },
+  --{"nvim-telescope/telescope.nvim",tag = "0.1.8",ndependencies = { "nvim-lua/plenary.nvim" },
+  --},
+  --{"NeogitOrg/neogit",dependencies = { "nvim-lua/plenary.nvim", "sindrets/diffview.nvim" },
+  --},
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
@@ -67,9 +62,7 @@ return {
       end
     vim.lsp.enable('clangd')
     vim.lsp.enable('pyright')
-    vim.lsp.enable('ruff')
-    
-      
+    vim.lsp.enable('ruff')  
     end,
   },
   {
