@@ -30,7 +30,7 @@ if mason_ok then
 end
 if mason_lspconfig_ok then
   mason_lspconfig.setup({
-    ensure_installed = { "clangd", "pyright", "ruff" },
+    ensure_installed = { "clangd", "ty", "ruff" },
   })
 end
 
