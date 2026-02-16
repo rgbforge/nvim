@@ -26,7 +26,7 @@ return {
   {
     "williamboman/mason-lspconfig.nvim",
     opts = {
-      ensure_installed = { "clangd", "pyright", "ruff" },
+      ensure_installed = { "clangd", "ty", "ruff" },
     },
   },
   {
@@ -61,7 +61,7 @@ return {
         end
       end
     vim.lsp.enable('clangd')
-    vim.lsp.enable('pyright')
+    vim.lsp.enable('ty')
     vim.lsp.enable('ruff')  
     end,
   },
