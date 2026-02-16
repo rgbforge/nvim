@@ -34,16 +34,27 @@ The following packages are required by the specific LSP servers managed by this 
 
 * `unzip`
 * `c++` (for `clangd`)
-* `npm` (for `pyright`)
 
 #### Clipboard for WSL
 One of the following clipboard tools must be installed for system clipboard integration.
 
 * `xclip` or `wayclip` 
 
+---
 
 
 #### Notes on Distro-Specific Package Requirements
+
+**Debian 13:** 
+
+`ruff` is fine out of the box (see Debian 12)
+
+`xclip` requires autotools and libxmu-dev. The following packages are required:
+
+```
+sudo apt install autoconf automake libtool libxmu-dev
+```
+
 
 **Debian 12:** 
 
